@@ -11,6 +11,7 @@ import mihoyobbs
 import honkai3rd
 import tearsofthemis
 import cloud_genshin
+import honkaiStarRail
 from error import *
 from loghelper import log
 
@@ -95,6 +96,15 @@ def main():
             if "触发验证码" in genshin_message:
                 ret_code = 3
             return_data += "\n\n" + genshin_message
+            time.sleep(random.randint(2, 8))
+        #StarRail 签到
+        if config.config["games"]["cn"]["honkaiStarRail"]["auto_checkin"]:
+            log.info("正在进行铁道签到")
+            honkaiStarRail_help = honkaiStarRail.honkaiStarRail()
+            honkaiStarRail_message = honkaiStarRail_help.sign_account()
+            if "触发验证码" in honkaiStarRail_message:
+                ret_code = 3
+            return_data += "\n\n" + honkaiStarRail_message
             time.sleep(random.randint(2, 8))
         if config.config['cloud_games']['genshin']["enable"]:
             log.info("正在进行云原神签到")

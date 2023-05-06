@@ -33,6 +33,9 @@ games:
     tears_of_themis: #未定事件簿
       auto_checkin: false
       black_list: []
+    honkaiStarRail: #崩铁
+      auto_checkin: false
+      black_list: []
   os: #外服控制区域，现在暂时无用
     enable: false
     cookie: ""
